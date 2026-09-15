@@ -1,8 +1,10 @@
 import { Image, StyleSheet, Text, View } from "react-native"
 import Button from "../../components/Button";
 import { Colors } from "../../utility/Colors/colors";
+import { useNavigation } from "@react-navigation/native";
 
 const SplashScreen = () => {
+    const navigation = useNavigation()
     return (
         <View style={styles.container}>
             <Image source={require('../../assets/logo.png')} style={styles.image} />
@@ -11,8 +13,8 @@ const SplashScreen = () => {
                 <Text style={styles.title}>You will find</Text>
                 <Text style={[styles.innerText, styles.title]}>All you need.</Text>
             </View>
-            <Button title={'SignUp'} backgroundColor={Colors.blue} textColor={Colors.white} onClick={() => console.log('SignUp clicked')} />
-            <Button title={'SignIn'} backgroundColor={Colors.white} textColor={Colors.blue} onClick={() => console.log('SignIn clicked')} />
+            <Button title={'SignUp'} backgroundColor={Colors.blue} textColor={Colors.white} onClick={() => navigation.navigate('Signup')} />
+            <Button title={'SignIn'} backgroundColor={Colors.white} textColor={Colors.blue} onClick={() => navigation.navigate('SignIn')} />
 
         </View>
     )

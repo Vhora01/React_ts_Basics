@@ -9,36 +9,41 @@ import { NewAppScreen } from '@react-native/new-app-screen';
 import { StatusBar, StyleSheet, useColorScheme, View, Text } from 'react-native';
 import {
   SafeAreaProvider,
-  useSafeAreaInsets,
 } from 'react-native-safe-area-context';
-import CourseGoal from './Components/CourseGoal';
-import StackDemo from './Components/StackDemo';
-import ListDemo from './Components/ListDemo';
 import { Provider } from 'react-redux';
 import { store } from './Redux/store';
 import SplashScreen from './Source/screens/auth/SplashScreen.tsx';
 import Signup from './Source/screens/auth/Signup.tsx';
 import SignIn from './Source/screens/auth/SignIn.tsx';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Colors } from './Source/utility/Colors/colors.tsx';
+
+
+const Stack = createNativeStackNavigator()
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: Colors.white,
+  },
+};
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <Provider store={store}>
-      <SafeAreaProvider>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        {/* <CourseGoal title="Learn React Native" description="Master the fundamentals of React Native development" /> */}
-        {/* <CourseGoal title="Learn React Native" key={'1'}>
-        <Text>Master the fundamentals of React Native development</Text>
-
-      </CourseGoal> */}
-        {/* <StackDemo /> */}
-        {/* <ListDemo /> */}
-        {/* <SplashScreen /> */}
-        {/* <Signup /> */}
-        <SignIn />
-      </SafeAreaProvider>
-    </Provider>
+    <SafeAreaProvider>
+      <Provider store={store}>
+        <NavigationContainer theme={theme}>
+          <Stack.Navigator>
+            <Stack.Screen name='SplashScreen' component={SplashScreen} />
+            <Stack.Screen name='SignIn' component={SignIn} />
+            <Stack.Screen name='Signup' component={Signup} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
+    </SafeAreaProvider>
   );
 }
 
