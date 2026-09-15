@@ -6,40 +6,50 @@
  */
 
 import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { StatusBar, StyleSheet, useColorScheme, View, Text } from 'react-native';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import CourseGoal from './Components/CourseGoal';
+import StackDemo from './Components/StackDemo';
+import ListDemo from './Components/ListDemo';
+import { Provider } from 'react-redux';
+import { store } from './Redux/store';
+import SplashScreen from './Source/screens/auth/SplashScreen.tsx';
+import Signup from './Source/screens/auth/Signup.tsx';
+import SignIn from './Source/screens/auth/SignIn.tsx';
 
-function App() {
+const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        {/* <CourseGoal title="Learn React Native" description="Master the fundamentals of React Native development" /> */}
+        {/* <CourseGoal title="Learn React Native" key={'1'}>
+        <Text>Master the fundamentals of React Native development</Text>
+
+      </CourseGoal> */}
+        {/* <StackDemo /> */}
+        {/* <ListDemo /> */}
+        {/* <SplashScreen /> */}
+        {/* <Signup /> */}
+        <SignIn />
+      </SafeAreaProvider>
+    </Provider>
   );
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
 
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
-
-export default App;
