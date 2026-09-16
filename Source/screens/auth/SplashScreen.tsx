@@ -2,21 +2,28 @@ import { Image, StyleSheet, Text, View } from "react-native"
 import Button from "../../components/Button";
 import { Colors } from "../../utility/Colors/colors";
 import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { StackWithoutLoginParamList } from "../../../App";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-const SplashScreen = () => {
-    const navigation = useNavigation()
+type SplashScreenProps = NativeStackScreenProps<StackWithoutLoginParamList, "SplashScreen">
+
+const SplashScreen = (props: SplashScreenProps) => {
+    const { navigation } = props;
     return (
-        <View style={styles.container}>
-            <Image source={require('../../assets/logo.png')} style={styles.image} />
+        <SafeAreaView>
+            <View style={styles.container}>
+                <Image source={require('../../assets/logo.png')} style={styles.image} />
 
-            <View style={styles.titleContainer}>
-                <Text style={styles.title}>You will find</Text>
-                <Text style={[styles.innerText, styles.title]}>All you need.</Text>
+                <View style={styles.titleContainer}>
+                    <Text style={styles.title}>You will find</Text>
+                    <Text style={[styles.innerText, styles.title]}>All you need.</Text>
+                </View>
+                <Button title={'SignUp'} backgroundColor={Colors.blue} textColor={Colors.white} onClick={() => navigation.navigate('Signup')} />
+                <Button title={'SignIn'} backgroundColor={Colors.white} textColor={Colors.blue} onClick={() => navigation.navigate('SignIn')} />
+
             </View>
-            <Button title={'SignUp'} backgroundColor={Colors.blue} textColor={Colors.white} onClick={() => navigation.navigate('Signup')} />
-            <Button title={'SignIn'} backgroundColor={Colors.white} textColor={Colors.blue} onClick={() => navigation.navigate('SignIn')} />
-
-        </View>
+        </SafeAreaView>
     )
 }
 

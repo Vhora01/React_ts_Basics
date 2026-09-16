@@ -1,18 +1,20 @@
+
 import React from 'react';
 import { ScrollView, Text, StyleSheet } from 'react-native';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const Home = () => {
+const Favorites = () => {
     return (
         <SafeAreaView>
             <ScrollView style={styles.container}>
-                <Text>Home</Text>
+                <Text>Favorites</Text>
             </ScrollView>
         </SafeAreaView>
     )
 }
 
-export default React.memo(Home);
+export default React.memo(Favorites);
 
 const styles = StyleSheet.create({
     container: {

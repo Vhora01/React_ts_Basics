@@ -1,18 +1,21 @@
+
+
 import React from 'react';
 import { ScrollView, Text, StyleSheet } from 'react-native';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const Home = () => {
+const Settings = () => {
     return (
         <SafeAreaView>
             <ScrollView style={styles.container}>
-                <Text>Home</Text>
+                <Text>Settings</Text>
             </ScrollView>
         </SafeAreaView>
     )
 }
 
-export default React.memo(Home);
+export default React.memo(Settings);
 
 const styles = StyleSheet.create({
     container: {
