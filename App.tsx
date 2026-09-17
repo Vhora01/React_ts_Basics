@@ -105,13 +105,28 @@ const MyTab = () => {
     <BottomTab.Navigator screenOptions={{ headerShown: false }} >
       <BottomTab.Screen name='Home' component={Home}
         options={{
-          tabBarIcon: ({ color, size }) => (
-            <Image style={{ height: size, width: size }} source={require('./Source/assets/eye.png')} />
-          ),
+          tabBarIcon: ({ focused, color, size }) => {
+            let icon = focused ? require('./Source/assets/home_selected.png') : require('./Source/assets/home_unselected.png');
+            return <Image style={{ height: size, width: size }} source={icon} />
+          }
         }}
       />
-      <BottomTab.Screen name='Profile' component={Profile} />
-      <BottomTab.Screen name='Favorites' component={Favorites} />
+      <BottomTab.Screen name='Profile' component={Profile}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => {
+            let icon = focused ? require('./Source/assets/profile_selected.png') : require('./Source/assets/profile_unselected.png');
+            return <Image style={{ height: size, width: size }} source={icon} />
+          }
+        }}
+      />
+      <BottomTab.Screen name='Favorites' component={Favorites}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => {
+            let icon = focused ? require('./Source/assets/favorites_selected.png') : require('./Source/assets/favorites_unselected.png');
+            return <Image style={{ height: size, width: size }} source={icon} />
+          }
+        }}
+      />
       <BottomTab.Screen name='Settings' component={Settings} />
     </BottomTab.Navigator>
   );
