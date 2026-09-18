@@ -1,5 +1,6 @@
 export const categories = [
     {
+        id: 5,
         title: 'Popular',
         image: 'https://static8.depositphotos.com/1338574/831/i/600/depositphotos_8318731-stock-photo-gold-star.jpg'
     },
@@ -23,9 +24,9 @@ export const categories = [
         title: 'Sofa',
         image: 'https://www.urbanconcepts.ph/wp/wp-content/uploads/2017/08/4202-1.jpg'
     },
-    {
-        id: 5,
-        title: 'Bed',
-        image: 'https://szyszkadesign.com/wp-content/uploads/2021/12/categorybeds-1-1200x1200-1.jpg'
-    },
+    // {
+    //     id: 5,
+    //     title: 'Bed',
+    //     image: 'https://szyszkadesign.com/wp-content/uploads/2021/12/categorybeds-1-1200x1200-1.jpg'
+    // },
 ]

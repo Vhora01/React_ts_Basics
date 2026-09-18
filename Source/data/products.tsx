@@ -2,7 +2,7 @@ export const products = [
     {
         id: 1,
         title: 'Loft Style Chair',
-        image: 'https://grandrapidschair.com/wp-content/uploads/2016/01/250_Brady_Graphite_Honey-1.jpg',
+        image: 'https://cdn.shopify.com/s/files/1/1009/7000/4812/files/7231_29802.jpg',
         category: 1,
         price: '$ 20.00'
     },
@@ -16,7 +16,7 @@ export const products = [
     {
         id: 3,
         title: 'Luxe Yellow Armchair',
-        image: 'https://www.woods-furniture.co.uk/images/products/standard/7706_8118.jpg',
+        image: 'https://www.woods-furniture.co.uk/cdn/shop/collections/12212_35094.jpg',
         category: 3,
         price: '$ 45.00'
     },
