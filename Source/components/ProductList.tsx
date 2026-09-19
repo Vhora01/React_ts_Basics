@@ -1,5 +1,5 @@
 
-import { View, FlatList, StyleSheet, Text, Image, Dimensions } from 'react-native';
+import { View, FlatList, StyleSheet, Text, Image, Dimensions, Pressable } from 'react-native';
 import { products } from "../data/products";
 import React, { useEffect, useState } from 'react';
 import { Colors } from "../utility/Colors/colors";
@@ -11,6 +11,7 @@ const imageWidth = containerWidth - 20
 
 type ProductProps = {
     categoryId: number
+    onProductPress: ({ }) => void
 }
 
 const ProductList = (props: ProductProps) => {
@@ -38,7 +39,10 @@ const ProductList = (props: ProductProps) => {
             renderItem={({ item, index }) => {
                 return (
                     <View style={styles.container}>
-                        <Image source={{ uri: item.image }} style={styles.image} />
+                        <Pressable onPress={() => props.onProductPress(item)}>
+                            <Image source={{ uri: item.image }} style={styles.image} />
+
+                        </Pressable>
                         <Text style={styles.title}>{item.title}</Text>
                         <Text style={styles.priceTitle}>{item.price}</Text>
                     </View>

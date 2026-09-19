@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 import { Colors } from "../../utility/Colors/colors";
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { StackWithoutLoginParamList } from "../../../App";
+import { StackWithoutLoginParamList } from "../navigation/StackNavigator";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 type SplashScreenProps = NativeStackScreenProps<StackWithoutLoginParamList, "SplashScreen">

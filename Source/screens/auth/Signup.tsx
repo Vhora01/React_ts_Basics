@@ -8,7 +8,8 @@ import Button from "../../components/Button";
 import Seperator from "../../components/Seperator";
 import GoogleLogin from "../../components/GoogleLogin";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { StackWithoutLoginParamList } from "../../../App";
+// import { StackWithoutLoginParamList } from "../../../App";
+import { StackWithoutLoginParamList } from "../navigation/StackNavigator";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 type SignupProps = NativeStackScreenProps<StackWithoutLoginParamList, "Signup">
