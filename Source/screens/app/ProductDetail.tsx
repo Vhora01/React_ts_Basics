@@ -5,18 +5,19 @@ import { Colors } from "../../utility/Colors/colors.tsx";
 import Button from "../../components/Button";
 
 const { width, height } = Dimensions.get('window')
-type ProductDetailProps = NativeStackScreenProps<HomeStackParamList, "ProductDetail">
+type ProductDetailProps = NativeStackScreenProps<HomeStackParamList, 'ProductDetail'>
 
 const ProductDetail = (props: ProductDetailProps) => {
-    const product = props.route.params as Readonly<{ product: any }>
+    const product = props.route.params as Readonly<{}>
+    console.log('product. ========', product)
     return (
         <View style={styles.container}>
-            <Image source={{ uri: product.product.image }} style={styles.image} />
+            <Image source={{ uri: product.image }} style={styles.image} />
             <View style={styles.contentContainer}>
-                <Text style={styles.title}>{product.product.title}</Text>
-                <Text style={styles.price}>{product.product.price}</Text>
+                <Text style={styles.title}>{product.title}</Text>
+                <Text style={styles.price}>{product.price}</Text>
                 <ScrollView showsVerticalScrollIndicator={false} style={{ marginTop: 10 }}>
-                    <Text style={styles.description}>{product.product.desciption}</Text>
+                    <Text style={styles.description}>{product.desciption}</Text>
                 </ScrollView>
 
                 <View style={styles.buttonContainer}>

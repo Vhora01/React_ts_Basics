@@ -1,13 +1,19 @@
 
 import React, { useState } from 'react';
-import { ScrollView, Text, StyleSheet, View, FlatList, Image } from 'react-native';
+import { ScrollView, Text, StyleSheet, View, FlatList, Image, Pressable } from 'react-native';
 
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import Header from '../../components/Header';
 import { products } from '../../data/products';
 import { Colors } from '../../utility/Colors/colors';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { FavouriteStackParamList } from '../navigation/FavouriteStackNavigator';
 
-const Favorites = () => {
+
+type FavouriteProps = NativeStackScreenProps<FavouriteStackParamList, 'Favourite'>
+
+const Favorites = (props: FavouriteProps) => {
+    const navigation = props.navigation
     const [product, setProducts] = useState(products)
     return (
         <SafeAreaProvider>
@@ -26,13 +32,19 @@ const Favorites = () => {
                         data={product}
                         renderItem={({ item, index }) =>
                             <View style={styles.row}>
-                                <Image style={styles.image} source={{ uri: item.image }} />
-                                <View style={styles.textContainer}>
-                                    <Text style={styles.title}>{item.title}</Text>
-                                    <Text style={styles.priceTitle}>{item.price}</Text>
-                                </View>
+                                <Pressable style={{ flexDirection: 'row' }} onPress={() => {
+                                    navigation.navigate('ProductDetail', item)
+                                }}>
+                                    <Image style={styles.image} source={{ uri: item.image }} />
+                                    <View style={styles.textContainer}>
+                                        <Text style={styles.title}>{item.title}</Text>
+                                        <Text style={styles.priceTitle}>{item.price}</Text>
+                                    </View>
+                                </Pressable>
                                 <View style={styles.iconContainer}>
-                                    <Image style={styles.closeimage} source={require('../../assets/close.png')} />
+                                    <Pressable >
+                                        <Image style={styles.closeimage} source={require('../../assets/close.png')} />
+                                    </Pressable>
                                 </View>
                             </View>
                         }

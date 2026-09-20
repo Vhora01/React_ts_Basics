@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     icon: {
-        width: 24,
-        height: 24,
+        width: 20,
+        height: 20,
     },
     space: { width: 24, },
     title: {

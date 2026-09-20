@@ -31,8 +31,8 @@ const Home = (props: HomeProps) => {
                     <CategoryList selectedCategoryId={selectedCategory} onCategoryPress={onCategoryPress} />
 
                     <ProductList categoryId={selectedCategory} onProductPress={(product) => {
-                        console.log('Home. product ======= ', product)
-                        navigation.navigate('ProductDetail', { product })
+                        // console.log('Home. product ======= ', product)
+                        navigation.navigate('ProductDetail', product)
                     }} />
                 </ScrollView>
             </SafeAreaView >

@@ -8,6 +8,7 @@ export type HomeStackParamList = {
 }
 
 const HomeStack = createNativeStackNavigator<HomeStackParamList>()
+
 const HomeStackNavigator = () => {
     return (
         <HomeStack.Navigator>

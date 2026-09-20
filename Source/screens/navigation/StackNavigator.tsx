@@ -15,8 +15,6 @@ export type StackWithoutLoginParamList = {
     Signup: undefined,
 }
 
-// const Stack = createNativeStackNavigator<StackWithoutLoginParamList>();
-// const StackBottomTab = createNativeStackNavigator();
 
 const theme = {
     ...DefaultTheme,
@@ -30,33 +28,8 @@ const theme = {
 export const StackNavigator = () => {
     const isSignIn = false;
 
-    // return (
-    //     <NavigationContainer theme={theme}>
-    //         <Stack.Navigator>
-    //             {
-    //                 isSignIn ?
-    //                     (
-    //                         <>
-    //                             <Stack.Screen name='BottomTab' component={BottomTab} options={{ headerShown: false }} />
-    //                         </>
-    //                     )
-    //                     :
-    //                     (
-    //                         <>
-    //                             <Stack.Screen name='SplashScreen' component={SplashScreen} options={{ headerShown: false }} />
-    //                             <Stack.Screen name='SignIn' component={SignIn} options={{ headerShown: false }} />
-    //                             <Stack.Screen name='Signup' component={Signup} options={{ headerShown: false }} />
-    //                         </>
-    //                     )
-    //             }
-    //         </Stack.Navigator>
-    //     </NavigationContainer>
-    // );
     return (
-        // <NavigationContainer theme={theme}>
         isSignIn ? <AuthStackNavigation /> : <TabNavigation />
-        // <TabNavigation />
-        // </NavigationContainer>
     )
 }
 

@@ -1,10 +1,12 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from '../app/Home.tsx';
-import Profile from '../app/Profile.tsx';
-import Favorites from '../app/Favorites.tsx';
-import Settings from '../app/Settings.tsx';
+// import Home from '../app/Home.tsx';
+// import Profile from '../app/Profile.tsx';
+// import Favorites from '../app/Favorites.tsx';
+// import Settings from '../app/Settings.tsx';
 import { Image } from 'react-native';
 import HomeStackNavigator from './HomeStackNavigator.tsx';
+import FavouriteStackNavigator from './FavouriteStackNavigator.tsx';
+import ProfileStackNavigator from './ProfileStackNavigator.tsx';
 
 export type BottomTabParamList = {
     Home: undefined,
@@ -25,7 +27,7 @@ const BottomTab = () => {
                     }
                 }}
             />
-            <TabNav.Screen name='Profile' component={Profile}
+            <TabNav.Screen name='Profile' component={ProfileStackNavigator}
                 options={{
                     tabBarIcon: ({ focused, color, size }) => {
                         let icon = focused ? require('../../assets/profile_selected.png') : require('../../assets/profile_unselected.png');
@@ -33,7 +35,7 @@ const BottomTab = () => {
                     }
                 }}
             />
-            <TabNav.Screen name='Favorites' component={Favorites}
+            <TabNav.Screen name='Favorites' component={FavouriteStackNavigator}
                 options={{
                     tabBarIcon: ({ focused, color, size }) => {
                         let icon = focused ? require('../../assets/favorites_selected.png') : require('../../assets/favorites_unselected.png');
