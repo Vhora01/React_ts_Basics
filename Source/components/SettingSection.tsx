@@ -1,12 +1,12 @@
 import { View, Text, Pressable, Image, StyleSheet } from "react-native";
 import { Colors } from "../utility/Colors/colors";
 
-type SettingSectionProps = {
+type SectionHeaderProps = {
     title: string,
     onEditPress?: () => void
 }
 
-const SettingSection = (props: SettingSectionProps) => {
+const SectionHeader = (props: SectionHeaderProps) => {
     return (
         <View style={styles.container}>
             <Text style={styles.sectionHeader}>{props.title}</Text>
@@ -19,7 +19,7 @@ const SettingSection = (props: SettingSectionProps) => {
     );
 }
 
-export default SettingSection;
+export default SectionHeader;
 
 const styles = StyleSheet.create(
     {

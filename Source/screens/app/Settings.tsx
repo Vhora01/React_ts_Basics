@@ -7,7 +7,7 @@ import ListItem from '../../components/ListItem';
 import { Colors } from '../../utility/Colors/colors';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { ProfileStackParamList } from '../navigation/ProfileStackNavigator';
-import SettingSection from '../../components/SettingSection';
+import SectionHeader from '../../components/SettingSection';
 import SettingInput from '../../components/SettingInput';
 import Button from '../../components/Button';
 
@@ -33,7 +33,7 @@ const Settings = (props: SettingProps) => {
                             onLogout={() => { }}
                         /></View>
 
-                    <SettingSection title='Personal Information ' onEditPress={() => {
+                    <SectionHeader title='Personal Information ' onEditPress={() => {
                         // console.log('pressed')
                         setIsEditPersonalInfo((prevValue) => !prevValue)
                     }} />
@@ -51,11 +51,11 @@ const Settings = (props: SettingProps) => {
                     {
                         isEditPersonalInfo ?
                             <View style={styles.buttonContainer}>
-                                <Button title='Save' backgroundColor={Colors.blue} textColor={Colors.white} onClick={() => { }} />
+                                <Button title='Save' backgroundColor={Colors.blue} textColor={Colors.white} onClick={() => { props.navigation.navigate('CreateListing') }} />
                             </View> : null
                     }
 
-                    <SettingSection title='Help Center' />
+                    <SectionHeader title='Help Center' />
 
 
 

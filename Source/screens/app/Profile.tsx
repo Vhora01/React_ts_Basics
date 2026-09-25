@@ -36,7 +36,9 @@ const Profile = (props: ProfileProps) => {
 
 
                 <View style={styles.buttonContainer}>
-                    <Button title='Add New Listing' backgroundColor={Colors.blue} textColor={Colors.white} onClick={() => { }} />
+                    <Button title='Add New Listing' backgroundColor={Colors.blue} textColor={Colors.white} onClick={() => {
+                        props.navigation.navigate('CreateListing')
+                    }} />
                 </View>
 
 
